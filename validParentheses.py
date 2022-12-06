@@ -1,3 +1,32 @@
+""" CORRECT SOLUTION """
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        openBracks = set("({[")
+        closeBracks = set("]})")
+        pairMap = {')':'(','}':'{',']':'['}
+        parenStack = []
+
+        for i in s:
+            if i in openBracks:
+                parenStack.append(i) 
+            #not an opening bracket
+            if i in closeBracks:
+                if not parenStack:
+                    return False
+                    #can't be in closing if there's no opening
+                elif parenStack.pop() != pairMap[i]:
+                    return False
+                else:
+                    continue
+        if not parenStack:
+            #everything is popped so it's True
+            return True
+        else:
+            return False
+
+""" PREVIOUS SOLUTION
+
 class Solution:
     def isValid(self, s: str) -> bool:
         brackMap = {"(":0,")":0}
@@ -20,3 +49,4 @@ class Solution:
             return True
         else:
             return False
+"""
