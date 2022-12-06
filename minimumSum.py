@@ -5,6 +5,5 @@ class Solution:
         """no as the list is sorted the minimum sum would be 10*(list[0] + list[1]) + 
         (list[2] + list[3])"""
 
-        minSum = (10*(int(sortInts[0]) + int(sortInts[1])) + (int(sortInts[2]) + int(sortInts[3])))
-
+        minSum = ints[0]*10 + ints[1]*10 + ints[2] + ints[3]
         return minSum
